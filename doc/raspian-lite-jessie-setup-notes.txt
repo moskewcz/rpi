@@ -1,0 +1,12 @@
+
+# network setup 
+BOOT=/mnt/rpi/boot
+ROOT=/mnt/rpi/root
+OLAY=./mwm-mod
+# create overlay tarball
+tar cjf mwm-mod.tbz2 -C ${OLAY} *
+# unpack overlay
+sudo tar xjf mwm-mod.tbz2 --no-same-owner -C ${ROOT}
+# enable ssh
+echo "foo" | sudo tee ${BOOT}/ssh
+
